@@ -24,7 +24,8 @@ def view_result(record):
         record_file1=os.path.join(box_dir,'DCANet','%s.txt'%seq_name)
         record_file2 = os.path.join(box_dir, 'SiamFC', '%s.txt' % seq_name)
         record_file3 = os.path.join(box_dir, 'MUSTer', '%s.json' % seq_name)
-
+        if record_file3 is None:
+            continue
         box1=np.loadtxt(record_file1,delimiter=',')
         box2 = np.loadtxt(record_file2, delimiter=',')
 
@@ -57,10 +58,10 @@ def view_result(record):
 
 
 
-            cv2.imshow("draw_0", out)  # 显示画过矩形框的图片
+            #cv2.imshow("draw_0", out)  # 显示画过矩形框的图片
             if record:
-                cv2.imwrite("output_mutibox/{seq_neme}_{id}.jpg".format(seq_name=seq_name, id=i), out)
-            cv2.waitKey(0)
+                cv2.imwrite("output_mutibox/{seq_name}_{id}.jpg".format(seq_name=seq_name, id=i), out)
+            #cv2.waitKey(0)
 
 if __name__ == '__main__':
-    view_result(record=False)
+    view_result(record=True)
