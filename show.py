@@ -42,6 +42,9 @@ def view_result(record):
             x1, y1, w1, h1 = anno[i]  # gt
             x2, y2, w2, h2 = box1[i]  # dcanet
             x3, y3, w3, h3 = box2[i]  # siamfc
+            if i == len(box3):
+                break
+            #说明：因为MUSTer跟踪器结果和OTB2015不完全一致，加了个判断
             x4, y4, w4, h4 = box3[i]  # muster
 
             color1 = (0, 255, 0)  #绿色：groundtruth
