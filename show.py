@@ -24,7 +24,7 @@ def view_result(record):
         record_file1=os.path.join(box_dir,'DCANet','%s.txt'%seq_name)
         record_file2 = os.path.join(box_dir, 'SiamFC', '%s.txt' % seq_name)
         record_file3 = os.path.join(box_dir, 'MUSTer', '%s.json' % seq_name)
-        if record_file3 is None:
+        if not os.path.exists(record_file3) :
             continue
         box1=np.loadtxt(record_file1,delimiter=',')
         box2 = np.loadtxt(record_file2, delimiter=',')
